@@ -1,0 +1,19 @@
+name: 'VDET for Java'
+description: 'Analyses Java files for vulnerabilities'
+
+inputs:
+  paths:
+      description: 'Paths to analyse (relative to the repository root, separated by spaces)'
+      required: false
+      default: ''
+  files:
+    description: 'Files to analyse (paths relative to the repository root, separated by spaces)'
+    required: false
+    default: ''
+
+runs:
+  using: 'docker'
+  image: 'docker://up201806461/vdet:latest'
+  args:
+    - ${{ inputs.paths }}
+    - ${{ inputs.files }}

@@ -1,0 +1,509 @@
+{
+    "version": "2.1.0",
+    "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+    "runs": [
+        {
+            "tool": {
+                "driver": {
+                    "name": "VDET",
+                    "version": "1.0.0",
+                    "informationUri": "https://github.com/TQRG/VDET-for-Java",
+                    "rules": [
+                        {
+                            "id": "VDET/CWE-15",
+                            "name": "External Control of System or Configuration Setting",
+                            "shortDescription": {
+                                "text": "One or more system settings or configuration elements can be externally controlled by a user."
+                            },
+                            "fullDescription": {
+                                "text": "Allowing external control of system settings can disrupt service or cause an application to behave in unexpected, and potentially malicious ways."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/15.html",
+                            "help": {
+                                "text": "For more information, see the CWE-15 page on the MITRE website: https://cwe.mitre.org/data/definitions/15.html",
+                                "markdown": "For more information, see the [CWE-15 page](https://cwe.mitre.org/data/definitions/15.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-15"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-23",
+                            "name": "Relative Path Traversal",
+                            "shortDescription": {
+                                "text": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as \"..\" that can resolve to a location that is outside of that directory."
+                            },
+                            "fullDescription": {
+                                "text": "This allows attackers to traverse the file system to access files or directories that are outside of the restricted directory."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/23.html",
+                            "help": {
+                                "text": "For more information, see the CWE-23 page on the MITRE website: https://cwe.mitre.org/data/definitions/23.html",
+                                "markdown": "For more information, see the [CWE-23 page](https://cwe.mitre.org/data/definitions/23.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-23"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-36",
+                            "name": "Absolute Path Traversal",
+                            "shortDescription": {
+                                "text": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as \"/abs/path\" that can resolve to a location that is outside of that directory."
+                            },
+                            "fullDescription": {
+                                "text": "This allows attackers to traverse the file system to access files or directories that are outside of the restricted directory."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/36.html",
+                            "help": {
+                                "text": "For more information, see the CWE-36 page on the MITRE website: https://cwe.mitre.org/data/definitions/36.html",
+                                "markdown": "For more information, see the [CWE-36 page](https://cwe.mitre.org/data/definitions/36.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-36"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-78",
+                            "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+                            "shortDescription": {
+                                "text": "The product constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component."
+                            },
+                            "fullDescription": {
+                                "text": "This could allow attackers to execute unexpected, dangerous commands directly on the operating system. This weakness can lead to a vulnerability in environments in which the attacker does not have direct access to the operating system, such as in web applications. Alternately, if the weakness occurs in a privileged program, it could allow the attacker to specify commands that normally would not be accessible, or to call alternate commands with privileges that the attacker does not have. The problem is exacerbated if the compromised process does not follow the principle of least privilege, because the attacker-controlled commands may run with special system privileges that increases the amount of damage.There are at least two subtypes of OS command injection:The application intends to execute a single, fixed program that is under its own control. It intends to use externally-supplied inputs as arguments to that program. For example, the program might use system(\"nslookup [HOSTNAME]\") to run nslookup and allow the user to supply a HOSTNAME, which is used as an argument. Attackers cannot prevent nslookup from executing. However, if the program does not remove command separators from the HOSTNAME argument, attackers could place the separators into the arguments, which allows them to execute their own program after nslookup has finished executing.The application accepts an input that it uses to fully select which program to run, as well as which commands to use. The application simply redirects this entire command to the operating system. For example, the program might use \"exec([COMMAND])\" to execute the [COMMAND] that was supplied by the user. If the COMMAND is under attacker control, then the attacker can execute arbitrary commands or programs. If the command is being executed using functions like exec() and CreateProcess(), the attacker might not be able to combine multiple commands together in the same line.From a weakness standpoint, these variants represent distinct programmer errors. In the first variant, the programmer clearly intends that input from untrusted parties will be part of the arguments in the command to be executed. In the second variant, the programmer does not intend for the command to be accessible to any untrusted party, but the programmer probably has not accounted for alternate ways in which malicious attackers can provide input."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/78.html",
+                            "help": {
+                                "text": "For more information, see the CWE-78 page on the MITRE website: https://cwe.mitre.org/data/definitions/78.html",
+                                "markdown": "For more information, see the [CWE-78 page](https://cwe.mitre.org/data/definitions/78.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-78"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-80",
+                            "name": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS)",
+                            "shortDescription": {
+                                "text": "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special characters such as \"<\", \">\", and \"&\" that could be interpreted as web-scripting elements when they are sent to a downstream component that processes web pages."
+                            },
+                            "fullDescription": {
+                                "text": "This may allow such characters to be treated as control characters, which are executed client-side in the context of the user's session. Although this can be classified as an injection problem, the more pertinent issue is the improper conversion of such special characters to respective context-appropriate entities before displaying them to the user."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/80.html",
+                            "help": {
+                                "text": "For more information, see the CWE-80 page on the MITRE website: https://cwe.mitre.org/data/definitions/80.html",
+                                "markdown": "For more information, see the [CWE-80 page](https://cwe.mitre.org/data/definitions/80.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-80"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-89",
+                            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+                            "shortDescription": {
+                                "text": "The product constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component."
+                            },
+                            "fullDescription": {
+                                "text": "Without sufficient removal or quoting of SQL syntax in user-controllable inputs, the generated SQL query can cause those inputs to be interpreted as SQL instead of ordinary user data. This can be used to alter query logic to bypass security checks, or to insert additional statements that modify the back-end database, possibly including execution of system commands. SQL injection has become a common issue with database-driven web sites. The flaw is easily detected, and easily exploited, and as such, any site or product package with even a minimal user base is likely to be subject to an attempted attack of this kind. This flaw depends on the fact that SQL makes no real distinction between the control and data planes."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/89.html",
+                            "help": {
+                                "text": "For more information, see the CWE-89 page on the MITRE website: https://cwe.mitre.org/data/definitions/89.html",
+                                "markdown": "For more information, see the [CWE-89 page](https://cwe.mitre.org/data/definitions/89.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-89"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-90",
+                            "name": "Improper Neutralization of Special Elements used in an LDAP Query ('LDAP Injection')",
+                            "shortDescription": {
+                                "text": "The product constructs all or part of an LDAP query using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended LDAP query when it is sent to a downstream component."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/90.html",
+                            "help": {
+                                "text": "For more information, see the CWE-90 page on the MITRE website: https://cwe.mitre.org/data/definitions/90.html",
+                                "markdown": "For more information, see the [CWE-90 page](https://cwe.mitre.org/data/definitions/90.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-90"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-113",
+                            "name": "Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')",
+                            "shortDescription": {
+                                "text": "The product receives data from an HTTP agent/component (e.g., web server, proxy, browser, etc.), but it does not neutralize or incorrectly neutralizes CR and LF characters before the data is included in outgoing HTTP headers."
+                            },
+                            "fullDescription": {
+                                "text": "HTTP agents or components may include a web server, load balancer, reverse proxy, web caching proxy, application firewall, web browser, etc. Regardless of the role, they are expected to maintain coherent, consistent HTTP communication state across all components. However, including unexpected data in an HTTP header allows an attacker to specify the entirety of the HTTP message that is rendered by the client HTTP agent (e.g., web browser) or back-end HTTP agent (e.g., web server), whether the message is part of a request or a response.\n\t   When an HTTP request contains unexpected CR and LF characters, the server may respond with an output stream that is interpreted as \u201csplitting\u201d the stream into two different HTTP messages instead of one. CR is carriage return, also given by %0d or \\r, and LF is line feed, also given by %0a or \\n.In addition to CR and LF characters, other valid/RFC compliant special characters and unique character encodings can be utilized, such as HT (horizontal tab, also given by %09 or \\t) and SP (space, also given as + sign or %20).These types of unvalidated and unexpected data in HTTP message headers allow an attacker to control the second \"split\" message to mount attacks such as server-side request forgery, cross-site scripting, and cache poisoning attacks.HTTP response splitting weaknesses may be present when:Data enters a web application through an untrusted source, most frequently an HTTP request.The data is included in an HTTP response header sent to a web user without neutralizing malicious characters that can be interpreted as separator characters for headers."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/113.html",
+                            "help": {
+                                "text": "For more information, see the CWE-113 page on the MITRE website: https://cwe.mitre.org/data/definitions/113.html",
+                                "markdown": "For more information, see the [CWE-113 page](https://cwe.mitre.org/data/definitions/113.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-113"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-129",
+                            "name": "Improper Validation of Array Index",
+                            "shortDescription": {
+                                "text": "The product uses untrusted input when calculating or using an array index, but the product does not validate or incorrectly validates the index to ensure the index references a valid position within the array."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/129.html",
+                            "help": {
+                                "text": "For more information, see the CWE-129 page on the MITRE website: https://cwe.mitre.org/data/definitions/129.html",
+                                "markdown": "For more information, see the [CWE-129 page](https://cwe.mitre.org/data/definitions/129.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-129"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-134",
+                            "name": "Use of Externally-Controlled Format String",
+                            "shortDescription": {
+                                "text": "The product uses a function that accepts a format string as an argument, but the format string originates from an external source."
+                            },
+                            "fullDescription": {
+                                "text": "When an attacker can modify an externally-controlled format string, this can lead to buffer overflows, denial of service, or data representation problems.It should be noted that in some circumstances, such as internationalization, the set of format strings is externally controlled by design. If the source of these format strings is trusted (e.g. only contained in library files that are only modifiable by the system administrator), then the external control might not itself pose a vulnerability."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/134.html",
+                            "help": {
+                                "text": "For more information, see the CWE-134 page on the MITRE website: https://cwe.mitre.org/data/definitions/134.html",
+                                "markdown": "For more information, see the [CWE-134 page](https://cwe.mitre.org/data/definitions/134.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-134"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-190",
+                            "name": "Integer Overflow or Wraparound",
+                            "shortDescription": {
+                                "text": "The product performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can introduce other weaknesses when the calculation is used for resource management or execution control."
+                            },
+                            "fullDescription": {
+                                "text": "An integer overflow or wraparound occurs when an integer value is incremented to a value that is too large to store in the associated representation. When this occurs, the value may wrap to become a very small or negative number. While this may be intended behavior in circumstances that rely on wrapping, it can have security consequences if the wrap is unexpected. This is especially the case if the integer overflow can be triggered using user-supplied inputs. This becomes security-critical when the result is used to control looping, make a security decision, or determine the offset or size in behaviors such as memory allocation, copying, concatenation, etc."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/190.html",
+                            "help": {
+                                "text": "For more information, see the CWE-190 page on the MITRE website: https://cwe.mitre.org/data/definitions/190.html",
+                                "markdown": "For more information, see the [CWE-190 page](https://cwe.mitre.org/data/definitions/190.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-190"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-191",
+                            "name": "Integer Underflow (Wrap or Wraparound)",
+                            "shortDescription": {
+                                "text": "The product subtracts one value from another, such that the result is less than the minimum allowable integer value, which produces a value that is not equal to the correct result."
+                            },
+                            "fullDescription": {
+                                "text": "This can happen in signed and unsigned cases."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/191.html",
+                            "help": {
+                                "text": "For more information, see the CWE-191 page on the MITRE website: https://cwe.mitre.org/data/definitions/191.html",
+                                "markdown": "For more information, see the [CWE-191 page](https://cwe.mitre.org/data/definitions/191.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-191"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-197",
+                            "name": "Numeric Truncation Error",
+                            "shortDescription": {
+                                "text": "Truncation errors occur when a primitive is cast to a primitive of a smaller size and data is lost in the conversion."
+                            },
+                            "fullDescription": {
+                                "text": "When a primitive is cast to a smaller primitive, the high order bits of the large value are lost in the conversion, potentially resulting in an unexpected value that is not equal to the original value. This value may be required as an index into a buffer, a loop iterator, or simply necessary state data. In any case, the value cannot be trusted and the system will be in an undefined state. While this method may be employed viably to isolate the low bits of a value, this usage is rare, and truncation usually implies that an implementation error has occurred."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/197.html",
+                            "help": {
+                                "text": "For more information, see the CWE-197 page on the MITRE website: https://cwe.mitre.org/data/definitions/197.html",
+                                "markdown": "For more information, see the [CWE-197 page](https://cwe.mitre.org/data/definitions/197.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-197"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-319",
+                            "name": "Cleartext Transmission of Sensitive Information",
+                            "shortDescription": {
+                                "text": "The product transmits sensitive or security-critical data in cleartext in a communication channel that can be sniffed by unauthorized actors."
+                            },
+                            "fullDescription": {
+                                "text": "Many communication channels can be \"sniffed\" by attackers during data transmission. For example, network traffic can often be sniffed by any attacker who has access to a network interface. This significantly lowers the difficulty of exploitation by attackers."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/319.html",
+                            "help": {
+                                "text": "For more information, see the CWE-319 page on the MITRE website: https://cwe.mitre.org/data/definitions/319.html",
+                                "markdown": "For more information, see the [CWE-319 page](https://cwe.mitre.org/data/definitions/319.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-319"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-369",
+                            "name": "Divide By Zero",
+                            "shortDescription": {
+                                "text": "The product divides a value by zero."
+                            },
+                            "fullDescription": {
+                                "text": "This weakness typically occurs when an unexpected value is provided to the product, or if an error occurs that is not properly detected. It frequently occurs in calculations involving physical dimensions such as size, length, width, and height."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/369.html",
+                            "help": {
+                                "text": "For more information, see the CWE-269 page on the MITRE website: https://cwe.mitre.org/data/definitions/369.html",
+                                "markdown": "For more information, see the [CWE-369 page](https://cwe.mitre.org/data/definitions/369.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-369"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-400",
+                            "name": "Uncontrolled Resource Consumption",
+                            "shortDescription": {
+                                "text": "The product does not properly control the allocation and maintenance of a limited resource, thereby enabling an actor to influence the amount of resources consumed, eventually leading to the exhaustion of available resources."
+                            },
+                            "fullDescription": {
+                                "text": "Limited resources include memory, file system storage, database connection pool entries, and CPU. If an attacker can trigger the allocation of these limited resources, but the number or size of the resources is not controlled, then the attacker could cause a denial of service that consumes all available resources. This would prevent valid users from accessing the product, and it could potentially have an impact on the surrounding environment. For example, a memory exhaustion attack against an application could slow down the application as well as its host operating system. There are at least three distinct scenarios which can commonly lead to resource exhaustion: Lack of throttling for the number of allocated resources; Losing all references to a resource before reaching the shutdown stage; Not closing/returning a resource after processing. Resource exhaustion problems are often result due to an incorrect implementation of the following situations: Error conditions and other exceptional circumstances; Confusion over which part of the program is responsible for releasing the resource."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/400.html",
+                            "help": {
+                                "text": "For more information, see the CWE-400 page on the MITRE website: https://cwe.mitre.org/data/definitions/400.html",
+                                "markdown": "For more information, see the [CWE-400 page](https://cwe.mitre.org/data/definitions/400.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-400"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-470",
+                            "name": "Use of Externally-Controlled Input to Select Classes or Code ('Unsafe Reflection')",
+                            "shortDescription": {
+                                "text": "The product uses external input with reflection to select which classes or code to use, but it does not sufficiently prevent the input from selecting improper classes or code."
+                            },
+                            "fullDescription": {
+                                "text": "If the product uses external inputs to determine which class to instantiate or which method to invoke, then an attacker could supply values to select unexpected classes or methods. If this occurs, then the attacker could create control flow paths that were not intended by the developer. These paths could bypass authentication or access control checks, or otherwise cause the application to behave in an unexpected manner. This situation becomes a doomsday scenario if the attacker can upload files into a location that appears on the application's classpath (CWE-427) or add new entries to the application's classpath (CWE-426). Under either of these conditions, the attacker can use reflection to introduce new, malicious behavior into the application."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/470.html",
+                            "help": {
+                                "text": "For more information, see the CWE-470 page on the MITRE website: https://cwe.mitre.org/data/definitions/470.html",
+                                "markdown": "For more information, see the [CWE-470 page](https://cwe.mitre.org/data/definitions/470.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-470"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-606",
+                            "name": "Unchecked Input for Loop Condition",
+                            "shortDescription": {
+                                "text": "The product does not properly check inputs that are used for loop conditions, potentially leading to a denial of service or other consequences because of excessive looping."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/606.html",
+                            "help": {
+                                "text": "For more information, see the CWE-606 page on the MITRE website: https://cwe.mitre.org/data/definitions/606.html",
+                                "markdown": "For more information, see the [CWE-606 page](https://cwe.mitre.org/data/definitions/606.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-606"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-643",
+                            "name": "Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
+                            "shortDescription": {
+                                "text": "The product uses external input to dynamically construct an XPath expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query."
+                            },
+                            "fullDescription": {
+                                "text": "The net effect is that the attacker will have control over the information selected from the XML database and may use that ability to control application flow, modify logic, retrieve unauthorized data, or bypass important checks (e.g. authentication)."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/643.html",
+                            "help": {
+                                "text": "For more information, see the CWE-643 page on the MITRE website: https://cwe.mitre.org/data/definitions/643.html",
+                                "markdown": "For more information, see the [CWE-643 page](https://cwe.mitre.org/data/definitions/643.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-643"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-690",
+                            "name": "Unchecked Return Value to NULL Pointer Dereference",
+                            "shortDescription": {
+                                "text": "The product does not check for an error after calling a function that can return with a NULL pointer if the function fails, which leads to a resultant NULL pointer dereference."
+                            },
+                            "fullDescription": {
+                                "text": "While unchecked return value weaknesses are not limited to returns of NULL pointers (see the examples in CWE-252), functions often return NULL to indicate an error status. When this error condition is not checked, a NULL pointer dereference can occur."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/690.html",
+                            "help": {
+                                "text": "For more information, see the CWE-690 page on the MITRE website: https://cwe.mitre.org/data/definitions/690.html",
+                                "markdown": "For more information, see the [CWE-690 page](https://cwe.mitre.org/data/definitions/690.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-690"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "VDET/CWE-789",
+                            "name": "Memory Allocation with Excessive Size Value",
+                            "shortDescription": {
+                                "text": "The product allocates memory based on an untrusted, large size value, but it does not ensure that the size is within expected limits, allowing arbitrary amounts of memory to be allocated."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/789.html",
+                            "help": {
+                                "text": "For more information, see the CWE-789 page on the MITRE website: https://cwe.mitre.org/data/definitions/789.html",
+                                "markdown": "For more information, see the [CWE-789 page](https://cwe.mitre.org/data/definitions/789.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags" : [
+                                    "security",
+                                    "CWE-789"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

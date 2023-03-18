@@ -1,0 +1,9 @@
+.git
+.github
+.gitignore
+README.md
+**/__pycache__/
+extra/
+.env-template
+results.sarif
+github/
