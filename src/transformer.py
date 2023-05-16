@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import transformers
+from transformers import BertModel, AutoTokenizer
 
 DROPOUT_PROB = 0.1  # default value
 N_CLASSES = 23  # check javabert-multilabel.ipynb (cell 6)
@@ -11,19 +11,11 @@ DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 class vulnerabilityClassifier(nn.Module):
     def __init__(self, training_steps, n_classes, dropout_prob):
         super(vulnerabilityClassifier, self).__init__()
-        self.model = transformers.BertModel.from_pretrained("CAUKiel/JavaBERT", output_hidden_states=True)
+        self.model = BertModel.from_pretrained("CAUKiel/JavaBERT", output_hidden_states=True)
         self.dropout = nn.Dropout(dropout_prob)
         self.linear = nn.Linear(768 * 4, n_classes) # If you are using last four hidden state
-        # self.linear = nn.Linear(768, n_classes) # If you are using the pooler output
-        #self.out = nn.Linear(768, n_classes)
         self.n_train_steps = training_steps
         self.step_scheduler_after = "batch"
-
-    """ def forward(self, ids, mask):
-        output_1 = self.model(ids, attention_mask=mask)["pooler_output"]
-        output_2 = self.dropout(output_1)
-        output = self.out(output_2)
-        return output """
     
     def forward(self, ids, mask):
         """Use last four hidden states"""
@@ -40,33 +32,20 @@ class vulnerabilityClassifier(nn.Module):
         output = self.linear(output_dropout)
         return output
 
-    # def forward(self, ids, mask):
-    #     """Use pooler output"""
-    #     output_1 = self.model(ids, attention_mask=mask)["pooler_output"]
-    #     output_dropout = self.dropout(output_1)
-    #     output = self.linear(output_dropout)
-    #     return output 
-
 
 def getModel(pretrained_model_path):
     model = vulnerabilityClassifier(TRAINING_STEPS, N_CLASSES, DROPOUT_PROB)
 
-    # original saved file with DataParallel
     state_dict = torch.load(pretrained_model_path, map_location=DEVICE)
 
-    model_state_dict = state_dict["model_state_dict"]
-    # Replace the key of the state dict, they are not compatible with pretrained model
-    # model_state_dict["out.weight"] = model_state_dict.pop("linear.weight")
-    # model_state_dict["out.bias"] = model_state_dict.pop("linear.bias")
-
-    model.load_state_dict(model_state_dict)
+    model.load_state_dict(state_dict["model_state_dict"])
 
     model.eval()
     return model
 
 
 def getTokenizer():
-    return transformers.AutoTokenizer.from_pretrained("CAUKiel/JavaBERT")
+    return AutoTokenizer.from_pretrained("CAUKiel/JavaBERT")
 
 
 def getMultilabelBinarizer(mlb_path):
@@ -74,6 +53,7 @@ def getMultilabelBinarizer(mlb_path):
 
 
 # Process any length sequence
+## https://towardsdatascience.com/how-to-apply-transformers-to-any-length-of-text-a5601410af7f
 def process_sequence(encodings):
     input_id_chunks = encodings['input_ids'][0].split(510)  # 512 - cls - sep
     mask_chunks = encodings['attention_mask'][0].split(510)
@@ -107,11 +87,7 @@ def process_sequence(encodings):
 
 # Return array of tuples (w/ probabilities and associated label; threshold = 0.4)
 def get_labels(mlb, outputs):
-    mlb_classes = mlb.classes_
-
-    # TODO: replace mlb classes with more meaningful classes (True > is Vulnerable)
-    #mlb_classes = np.where(mlb_classes == "True", "Vulnerable", mlb_classes)
-    #mlb_classes = np.where(mlb_classes == "False", "Non Vulnerable", mlb_classes)    
+    mlb_classes = mlb.classes_  
     
     z = []
     outputs = (torch.sigmoid(outputs)) # Use sigmoid function to fit results [0, 1] and then filter w/ threshold=0.45
