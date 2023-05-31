@@ -1,4 +1,4 @@
-# VDET-Action-test
+# VDET-Action
 
 This action analysis Java files and generates a report in [Static Analysis Results Interchange Format (SARIF) format](https://www.oasis-open.org/standard/sarif-v2-1-0/).
 
@@ -8,7 +8,7 @@ We recommend using the [actions/checkout](https://github.com/marketplace/actions
 
 <!-- start usage -->
 ```yaml
-- uses: andrenasx/VDET-Action-test@main
+- uses: andrenasx/VDET-Action@main
   with:
     # Paths to the directories containing the Java source files to analyze.
     # These paths are relative to the root of the repository, and separated by spaces when multiple paths are provided.
@@ -48,7 +48,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run VDET
-        uses: andrenasx/VDET-Action-test@main
+        uses: andrenasx/VDET-Action@main
 
       - name: Upload VDET report
         uses: github/codeql-action/upload-sarif@v2
@@ -72,7 +72,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run VDET
-        uses: andrenasx/VDET-Action-test@main
+        uses: andrenasx/VDET-Action@main
         with:
           files: 'src/main/java/com/example/HelloWorld.java src/test/java/com/example/HelloWorldTest.java'
 
@@ -98,7 +98,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run VDET
-        uses: andrenasx/VDET-Action-test@main
+        uses: andrenasx/VDET-Action@main
         with:
           paths: 'src/main/java/com/example/HelloWorld.java src/test/java/com/example/HelloWorldTest.java'
 
@@ -132,7 +132,7 @@ jobs:
           echo "files=${changedFiles//$'\n'/ }" >> "$GITHUB_OUTPUT"
 
       - name: Run VDET
-        uses: andrenasx/VDET-Action-test@main
+        uses: andrenasx/VDET-Action@main
         with:
           files: ${{ steps.diff.outputs.files }}
 
