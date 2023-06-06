@@ -5,12 +5,12 @@
         {
             "tool": {
                 "driver": {
-                    "name": "VDET",
+                    "name": "J-TAS",
                     "version": "1.0.0",
-                    "informationUri": "https://github.com/TQRG/VDET-for-Java",
+                    "informationUri": "https://github.com/andrenasx/VDET-Action",
                     "rules": [
                         {
-                            "id": "VDET/CWE-15",
+                            "id": "J-TAS/CWE-15",
                             "name": "External Control of System or Configuration Setting",
                             "shortDescription": {
                                 "text": "One or more system settings or configuration elements can be externally controlled by a user."
@@ -34,31 +34,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-23",
-                            "name": "Relative Path Traversal",
-                            "shortDescription": {
-                                "text": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as \"..\" that can resolve to a location that is outside of that directory."
-                            },
-                            "fullDescription": {
-                                "text": "This allows attackers to traverse the file system to access files or directories that are outside of the restricted directory."
-                            },
-                            "helpUri": "https://cwe.mitre.org/data/definitions/23.html",
-                            "help": {
-                                "text": "For more information, see the CWE-23 page on the MITRE website: https://cwe.mitre.org/data/definitions/23.html",
-                                "markdown": "For more information, see the [CWE-23 page](https://cwe.mitre.org/data/definitions/23.html) on the MITRE website."
-                            },
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "properties" : {
-                                "tags" : [
-                                    "security",
-                                    "CWE-23"
-                                ]
-                            }
-                        },
-                        {
-                            "id": "VDET/CWE-36",
+                            "id": "J-TAS/CWE-36",
                             "name": "Absolute Path Traversal",
                             "shortDescription": {
                                 "text": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as \"/abs/path\" that can resolve to a location that is outside of that directory."
@@ -82,7 +58,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-78",
+                            "id": "J-TAS/CWE-78",
                             "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
                             "shortDescription": {
                                 "text": "The product constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component."
@@ -106,7 +82,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-80",
+                            "id": "J-TAS/CWE-80",
                             "name": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS)",
                             "shortDescription": {
                                 "text": "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special characters such as \"<\", \">\", and \"&\" that could be interpreted as web-scripting elements when they are sent to a downstream component that processes web pages."
@@ -130,7 +106,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-89",
+                            "id": "J-TAS/CWE-89",
                             "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
                             "shortDescription": {
                                 "text": "The product constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component."
@@ -154,7 +130,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-90",
+                            "id": "J-TAS/CWE-90",
                             "name": "Improper Neutralization of Special Elements used in an LDAP Query ('LDAP Injection')",
                             "shortDescription": {
                                 "text": "The product constructs all or part of an LDAP query using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended LDAP query when it is sent to a downstream component."
@@ -175,7 +151,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-113",
+                            "id": "J-TAS/CWE-113",
                             "name": "Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')",
                             "shortDescription": {
                                 "text": "The product receives data from an HTTP agent/component (e.g., web server, proxy, browser, etc.), but it does not neutralize or incorrectly neutralizes CR and LF characters before the data is included in outgoing HTTP headers."
@@ -199,7 +175,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-129",
+                            "id": "J-TAS/CWE-129",
                             "name": "Improper Validation of Array Index",
                             "shortDescription": {
                                 "text": "The product uses untrusted input when calculating or using an array index, but the product does not validate or incorrectly validates the index to ensure the index references a valid position within the array."
@@ -220,7 +196,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-134",
+                            "id": "J-TAS/CWE-134",
                             "name": "Use of Externally-Controlled Format String",
                             "shortDescription": {
                                 "text": "The product uses a function that accepts a format string as an argument, but the format string originates from an external source."
@@ -244,7 +220,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-190",
+                            "id": "J-TAS/CWE-190",
                             "name": "Integer Overflow or Wraparound",
                             "shortDescription": {
                                 "text": "The product performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can introduce other weaknesses when the calculation is used for resource management or execution control."
@@ -268,7 +244,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-191",
+                            "id": "J-TAS/CWE-191",
                             "name": "Integer Underflow (Wrap or Wraparound)",
                             "shortDescription": {
                                 "text": "The product subtracts one value from another, such that the result is less than the minimum allowable integer value, which produces a value that is not equal to the correct result."
@@ -292,7 +268,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-197",
+                            "id": "J-TAS/CWE-197",
                             "name": "Numeric Truncation Error",
                             "shortDescription": {
                                 "text": "Truncation errors occur when a primitive is cast to a primitive of a smaller size and data is lost in the conversion."
@@ -316,7 +292,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-319",
+                            "id": "J-TAS/CWE-319",
                             "name": "Cleartext Transmission of Sensitive Information",
                             "shortDescription": {
                                 "text": "The product transmits sensitive or security-critical data in cleartext in a communication channel that can be sniffed by unauthorized actors."
@@ -340,7 +316,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-369",
+                            "id": "J-TAS/CWE-369",
                             "name": "Divide By Zero",
                             "shortDescription": {
                                 "text": "The product divides a value by zero."
@@ -364,7 +340,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-400",
+                            "id": "J-TAS/CWE-400",
                             "name": "Uncontrolled Resource Consumption",
                             "shortDescription": {
                                 "text": "The product does not properly control the allocation and maintenance of a limited resource, thereby enabling an actor to influence the amount of resources consumed, eventually leading to the exhaustion of available resources."
@@ -388,7 +364,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-470",
+                            "id": "J-TAS/CWE-470",
                             "name": "Use of Externally-Controlled Input to Select Classes or Code ('Unsafe Reflection')",
                             "shortDescription": {
                                 "text": "The product uses external input with reflection to select which classes or code to use, but it does not sufficiently prevent the input from selecting improper classes or code."
@@ -412,7 +388,31 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-606",
+                            "id": "J-TAS/CWE-476",
+                            "name": "NULL Pointer Dereference",
+                            "shortDescription": {
+                                "text": "A NULL pointer dereference occurs when the application dereferences a pointer that it expects to be valid, but is NULL, typically causing a crash or exit."
+                            },
+                            "fullDescription": {
+                                "text": "NULL pointer dereference issues can occur through a number of flaws, including race conditions, and simple programming omissions."
+                            },
+                            "helpUri": "https://cwe.mitre.org/data/definitions/476.html",
+                            "help": {
+                                "text": "For more information, see the CWE-476 page on the MITRE website: https://cwe.mitre.org/data/definitions/476.html",
+                                "markdown": "For more information, see the [CWE-476 page](https://cwe.mitre.org/data/definitions/476.html) on the MITRE website."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "properties" : {
+                                "tags": [
+                                    "security",
+                                    "CWE-476"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "J-TAS/CWE-606",
                             "name": "Unchecked Input for Loop Condition",
                             "shortDescription": {
                                 "text": "The product does not properly check inputs that are used for loop conditions, potentially leading to a denial of service or other consequences because of excessive looping."
@@ -433,7 +433,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-643",
+                            "id": "J-TAS/CWE-643",
                             "name": "Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
                             "shortDescription": {
                                 "text": "The product uses external input to dynamically construct an XPath expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query."
@@ -457,7 +457,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-690",
+                            "id": "J-TAS/CWE-690",
                             "name": "Unchecked Return Value to NULL Pointer Dereference",
                             "shortDescription": {
                                 "text": "The product does not check for an error after calling a function that can return with a NULL pointer if the function fails, which leads to a resultant NULL pointer dereference."
@@ -481,7 +481,7 @@
                             }
                         },
                         {
-                            "id": "VDET/CWE-789",
+                            "id": "J-TAS/CWE-789",
                             "name": "Memory Allocation with Excessive Size Value",
                             "shortDescription": {
                                 "text": "The product allocates memory based on an untrusted, large size value, but it does not ensure that the size is within expected limits, allowing arbitrary amounts of memory to be allocated."

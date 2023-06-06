@@ -5,13 +5,37 @@ import javalang
 #* Action input related functions
 
 def get_workspace():
-    return "/github/workspace/"
+    return "/github/workspace"
+
+def get_labels():
+    return [
+        'Not Vuln',
+        '15',
+        '36',
+        '78',
+        '80',
+        '89',
+        '90',
+        '113',
+        '129',
+        '134',
+        '190',
+        '191',
+        '197',
+        '319',
+        '369',
+        '400',
+        '470',
+        '476',
+        '606',
+        '643',
+        '690',
+        '789'
+    ]
 
 def get_CWEs_description():
-    # Supported CWEs: 15, 23, 36, 78, 80, 89, 90, 113, 129, 134, 190, 191, 197, 319, 369, 400, 470, 606, 643, 690, 789
     return {
         "15": "One or more system settings or configuration elements can be externally controlled by a user.",
-        "23": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as \"..\" that can resolve to a location that is outside of that directory.",
         "36": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as \"/abs/path\" that can resolve to a location that is outside of that directory.",
         "78": "The product constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component.",
         "80": "The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special characters such as \"<\", \">\", and \"&\" that could be interpreted as web-scripting elements when they are sent to a downstream component that processes web pages.",
@@ -27,17 +51,17 @@ def get_CWEs_description():
         "369": "The product divides a value by zero.",
         "400": "The product does not properly control the allocation and maintenance of a limited resource, thereby enabling an actor to influence the amount of resources consumed, eventually leading to the exhaustion of available resources.",
         "470": "The application uses external input with reflection to select which classes or code to use, but it does not sufficiently prevent the input from selecting improper classes or code.",
+        "476": "A NULL pointer dereference occurs when the application dereferences a pointer that it expects to be valid, but is NULL, typically causing a crash or exit.",
         "606": "The product does not properly check inputs that are used for loop conditions, potentially leading to a denial of service or other consequences because of excessive looping.",
         "643": "The product uses external input to dynamically construct an XPath expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query.",
         "690": "The product does not check for an error after calling a function that can return with a NULL pointer if the function fails, which leads to a resultant NULL pointer dereference.",
         "789": "The product allocates memory based on an untrusted, large size value, but it does not ensure that the size is within expected limits, allowing arbitrary amounts of memory to be allocated."
     }
 
-def process_input_files(input):
+def process_input_files(workspace, input):
     if not input:
         return ""
     
-    workspace = get_workspace()
     files_temp = input.split()
     files = []
 
@@ -47,15 +71,15 @@ def process_input_files(input):
 
         if file.endswith(".java") and path.isfile(abs_path):
             files.append(abs_path)
+        else:
+            print("File '" + file + "' not found in the repository")
 
-    print(str(len(files)) + " input Java files found in the repository")
     return files
 
-def process_input_paths(input):
+def process_input_paths(workspace, input):
     if not input:
         return ""
     
-    workspace = get_workspace()
     paths_temp = input.split()
     paths = []
 
@@ -65,8 +89,9 @@ def process_input_paths(input):
 
         if path.isdir(abs_path):
             paths.append(abs_path)
+        else:
+            print("Path '" + p + "' not found in the repository")
 
-    print(str(len(paths)) + " input paths found in the repository")
     return paths
 
 
@@ -95,17 +120,6 @@ def clean_code(code):
     code = re.sub(r'\s+',' ', code)
 
     return code
-
-def flatten_list(zipped):
-    return [item for sublist in zipped for item in sublist] # Flatten list
-
-def remove_duplicate_labels(labels):
-    d = {}
-    for x, y in labels:
-        if y not in d:
-            d[y] = x
-    
-    return [(k, v) for k, v in d.items()]
 
 
 #* Java methods related functions

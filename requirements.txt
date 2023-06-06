@@ -1,6 +1,5 @@
 --extra-index-url https://download.pytorch.org/whl/cpu # Comment this line if you have a GPU
 torch
 transformers
-scikit-learn==1.0.2
 javalang
 python-dotenv

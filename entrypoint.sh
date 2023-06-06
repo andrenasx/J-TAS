@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 # Working directory
-cd /vdet
+cd /gaction
 
 # Run the detector
 python src/analyse.py "$1" "$2"

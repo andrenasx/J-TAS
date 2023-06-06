@@ -2,16 +2,17 @@ import torch
 import torch.nn as nn
 from transformers import BertModel, AutoTokenizer
 
+#* Change values according to notebook and model
 DROPOUT_PROB = 0.1  # default value
-N_CLASSES = 23  # check javabert-multilabel.ipynb (cell 6)
-TRAINING_STEPS = 92445 * 2  # len(dataset) * epochs (cell 10)
-
+N_CLASSES = 22
+TRAINING_STEPS = 58215 * 10
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+MODEL_CHECKPOINT = "up201806461/BFP-combined"
 
 class vulnerabilityClassifier(nn.Module):
     def __init__(self, training_steps, n_classes, dropout_prob):
         super(vulnerabilityClassifier, self).__init__()
-        self.model = BertModel.from_pretrained("CAUKiel/JavaBERT", output_hidden_states=True)
+        self.model = BertModel.from_pretrained(MODEL_CHECKPOINT, output_hidden_states=True)
         self.dropout = nn.Dropout(dropout_prob)
         self.linear = nn.Linear(768 * 4, n_classes) # If you are using last four hidden state
         self.n_train_steps = training_steps
@@ -45,11 +46,7 @@ def getModel(pretrained_model_path):
 
 
 def getTokenizer():
-    return AutoTokenizer.from_pretrained("CAUKiel/JavaBERT")
-
-
-def getMultilabelBinarizer(mlb_path):
-    return torch.load(mlb_path, map_location=DEVICE)
+    return AutoTokenizer.from_pretrained(MODEL_CHECKPOINT)
 
 
 # Process any length sequence
@@ -85,16 +82,7 @@ def process_sequence(encodings):
     
     return list_input_ids, list_mask
 
-# Return array of tuples (w/ probabilities and associated label; threshold = 0.4)
-def get_labels(mlb, outputs):
-    mlb_classes = mlb.classes_  
-    
-    z = []
-    outputs = (torch.sigmoid(outputs)) # Use sigmoid function to fit results [0, 1] and then filter w/ threshold=0.45
-    for out in outputs:
-        out_arr = out.detach().numpy()
-        z.append(
-            [(w1.astype(str),w2) for (w1,w2) in list(zip(out_arr,mlb_classes)) if w1 > 0.5]
-        )
-
-    return z
+def get_prediction(outputs):
+    # Sum predictions over all rows (i.e. for each column), accounting for the sequences longer than 512 tokens, then get the item with the highest probability
+    values, indices = torch.max(torch.softmax(outputs, dim=1).mean(dim=0), dim=0)
+    return values.item(), indices.item()
