@@ -100,7 +100,7 @@ jobs:
       - name: Run VDET
         uses: andrenasx/VDET-Action@main
         with:
-          paths: 'src/main/java/com/example/HelloWorld.java src/test/java/com/example/HelloWorldTest.java'
+          paths: 'src/main/java/com/controller src/main/java/com/service'
 
       - name: Upload VDET report
         uses: github/codeql-action/upload-sarif@v2
