@@ -69,8 +69,12 @@ def process_input_files(workspace, input):
     for file in files_temp:
         abs_path = workspace + file
 
-        if file.endswith(".java") and path.isfile(abs_path):
+        if not file.endswith(".java"):
+            print("File '" + file + "' is not a Java file. Ignoring...")
+
+        elif path.isfile(abs_path):
             files.append(abs_path)
+
         else:
             print("File '" + file + "' not found in the repository")
 
@@ -90,7 +94,7 @@ def process_input_paths(workspace, input):
         if path.isdir(abs_path):
             paths.append(abs_path)
         else:
-            print("Path '" + p + "' not found in the repository")
+            print("Path '" + p + "' not found in the repository. Ignoring...")
 
     return paths
 

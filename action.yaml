@@ -1,4 +1,4 @@
-name: 'VDET for Java'
+name: 'J-TAS'
 description: 'Analyses Java files for vulnerabilities'
 
 inputs:
@@ -13,7 +13,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'docker://up201806461/vdet:latest'
+  image: 'docker://up201806461/j-tas:latest'
   args:
     - ${{ inputs.paths }}
     - ${{ inputs.files }}

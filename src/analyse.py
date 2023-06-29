@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-from os import getenv
 import sys
 
 import json
@@ -20,7 +19,7 @@ def analyse(input_paths='', input_files=''):
         files.update(glob(GITHUB_WORKSPACE + '/**/*.java', recursive=True))
 
         if not files:
-            print("No Java files to analyze. Exiting...")
+            print("There are no Java files in the repository to analyze. Exiting...")
             sys.exit(0)
 
         print("Analyzing all Java files in this repository...")
@@ -40,13 +39,13 @@ def analyse(input_paths='', input_files=''):
             print("Analyzing specific Java files: " + str(input_files))
     
         if not files:
-            print("No Java files to analyze. Exiting...")
+            print("There are no Java files to analyze given the inputs provided. Exiting...")
             sys.exit(0)
 
 
     # Load model and tokenizer
     load_dotenv()
-    model = getModel(getenv("MODEL_PATH"))
+    model = getModel('./models/model2-bpf_combined-multiclass-nodups_8.bin')
     tokenizer = getTokenizer()
 
     # Load CWE descriptions and labels
@@ -120,6 +119,7 @@ def analyse(input_paths='', input_files=''):
 
     with open("./results.sarif", "w") as f:
         json.dump(results_sarif, f, indent=2)
+
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:

@@ -3,7 +3,7 @@ import torch.nn as nn
 from transformers import BertModel, AutoTokenizer
 
 #* Change values according to notebook and model
-DROPOUT_PROB = 0.1  # default value
+DROPOUT_PROB = 0.1
 N_CLASSES = 22
 TRAINING_STEPS = 58215 * 10
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

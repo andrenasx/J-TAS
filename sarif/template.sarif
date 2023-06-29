@@ -7,7 +7,7 @@
                 "driver": {
                     "name": "J-TAS",
                     "version": "1.0.0",
-                    "informationUri": "https://github.com/andrenasx/VDET-Action",
+                    "informationUri": "https://github.com/andrenasx/J-TAS",
                     "rules": [
                         {
                             "id": "J-TAS/CWE-15",
