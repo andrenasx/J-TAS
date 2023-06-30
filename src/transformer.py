@@ -1,43 +1,41 @@
 import torch
 import torch.nn as nn
-from transformers import BertModel, AutoTokenizer
+from transformers import BertModel, AutoTokenizer, logging
+logging.set_verbosity_error()
 
 #* Change values according to notebook and model
 DROPOUT_PROB = 0.1
 N_CLASSES = 22
 TRAINING_STEPS = 58215 * 10
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-MODEL_CHECKPOINT = "up201806461/BFP-combined"
+#MODEL_CHECKPOINT = "up201806461/bert-java-bfp_single"
+MODEL_CHECKPOINT = "./models/bert-java-bfp_single" # Using local checkpoint
 
 class vulnerabilityClassifier(nn.Module):
     def __init__(self, training_steps, n_classes, dropout_prob):
         super(vulnerabilityClassifier, self).__init__()
         self.model = BertModel.from_pretrained(MODEL_CHECKPOINT, output_hidden_states=True)
         self.dropout = nn.Dropout(dropout_prob)
-        self.linear = nn.Linear(768 * 4, n_classes) # If you are using last four hidden state
+        self.linear = nn.Linear(768 * 4, n_classes)
         self.n_train_steps = training_steps
         self.step_scheduler_after = "batch"
     
     def forward(self, ids, mask):
-        """Use last four hidden states"""
-        all_hidden_states = torch.stack(self.model(ids, attention_mask=mask)["hidden_states"])
+        cls_hs = torch.stack(self.model(ids, attention_mask=mask)["hidden_states"])
 
-        concatenate_pooling = torch.cat(
-            (all_hidden_states[-1], all_hidden_states[-2], all_hidden_states[-3], all_hidden_states[-4]),-1
-        )
+        cls_4hs = torch.cat((cls_hs[-1],
+                             cls_hs[-2],
+                             cls_hs[-3],
+                             cls_hs[-4]), -1)[:, 0]
 
-        concatenate_pooling = concatenate_pooling[:, 0]
-
-        output_dropout = self.dropout(concatenate_pooling)
-        
-        output = self.linear(output_dropout)
-        return output
+        output_dropout = self.dropout(cls_4hs)
+        return self.linear(output_dropout)
 
 
-def getModel(pretrained_model_path):
+def getModel():
     model = vulnerabilityClassifier(TRAINING_STEPS, N_CLASSES, DROPOUT_PROB)
 
-    state_dict = torch.load(pretrained_model_path, map_location=DEVICE)
+    state_dict = torch.load('./models/vd_model.bin', map_location=DEVICE)
 
     model.load_state_dict(state_dict["model_state_dict"])
 

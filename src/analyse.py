@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 import sys
 
 import json
@@ -6,7 +5,7 @@ from glob import glob
 
 import torch
 from transformer import getModel, getTokenizer, process_sequence, get_prediction
-from utils import clean_code, get_file_methods, get_workspace, get_CWEs_description, get_labels, process_input_files, process_input_paths
+from utils import clean_code, get_file_methods, get_workspace, get_labels, process_input_files, process_input_paths
 
 def analyse(input_paths='', input_files=''):
     GITHUB_WORKSPACE = get_workspace()
@@ -30,13 +29,16 @@ def analyse(input_paths='', input_files=''):
         input_files = process_input_files(GITHUB_WORKSPACE, input_files)
 
         if input_paths:
+            print("Analyzing all Java files in the following paths:")
             for p in input_paths:
                 files.update(glob(p + '/**/*.java', recursive=True))
-                print("Analyzing all Java files in " + p)
+                print("\t" + p)
 
         if input_files:
             files.update(input_files)
-            print("Analyzing specific Java files: " + str(input_files))
+            print("Analyzing specific Java files:")
+            for f in input_files:
+                print("\t" + f)
     
         if not files:
             print("There are no Java files to analyze given the inputs provided. Exiting...")
@@ -44,12 +46,10 @@ def analyse(input_paths='', input_files=''):
 
 
     # Load model and tokenizer
-    load_dotenv()
-    model = getModel('./models/model2-bpf_combined-multiclass-nodups_8.bin')
+    model = getModel()
     tokenizer = getTokenizer()
 
     # Load CWE descriptions and labels
-    CWE_DESC = get_CWEs_description()
     labels = get_labels()
 
     # Load the template SARIF file for results
@@ -91,9 +91,9 @@ def analyse(input_paths='', input_files=''):
 
             # Add the current method result to the list
             results.append({
-                "ruleId": "VDET/CWE-" + label,
+                "ruleId": "J-TAS/CWE-" + label,
                 "message": {
-                    "text": "CWE-" + label + " predicted with " + str(round(float(prob)*100, 2)) + "% probability. " +  CWE_DESC[label]
+                    "text": "CWE-" + label + " predicted with " + str(round(float(prob)*100, 2)) + "% probability."
                 },
                 "locations": [
                     {
