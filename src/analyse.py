@@ -32,13 +32,13 @@ def analyse(input_paths='', input_files=''):
             print("Analyzing all Java files in the following paths:")
             for p in input_paths:
                 files.update(glob(p + '/**/*.java', recursive=True))
-                print("\t" + p)
+                print("\t" + p.removeprefix(GITHUB_WORKSPACE))
 
         if input_files:
             files.update(input_files)
             print("Analyzing specific Java files:")
             for f in input_files:
-                print("\t" + f)
+                print("\t" + f.removeprefix(GITHUB_WORKSPACE))
     
         if not files:
             print("There are no Java files to analyze given the inputs provided. Exiting...")

@@ -20,8 +20,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/15.html",
                             "help": {
-                                "text": "For more information, see the CWE-15 page on the MITRE website: https://cwe.mitre.org/data/definitions/15.html",
-                                "markdown": "For more information, see the [CWE-15 page](https://cwe.mitre.org/data/definitions/15.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-15 page on the MITRE website: https://cwe.mitre.org/data/definitions/15.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-15 page](https://cwe.mitre.org/data/definitions/15.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -44,8 +44,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/36.html",
                             "help": {
-                                "text": "For more information, see the CWE-36 page on the MITRE website: https://cwe.mitre.org/data/definitions/36.html",
-                                "markdown": "For more information, see the [CWE-36 page](https://cwe.mitre.org/data/definitions/36.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-36 page on the MITRE website: https://cwe.mitre.org/data/definitions/36.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-36 page](https://cwe.mitre.org/data/definitions/36.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -68,8 +68,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/78.html",
                             "help": {
-                                "text": "For more information, see the CWE-78 page on the MITRE website: https://cwe.mitre.org/data/definitions/78.html",
-                                "markdown": "For more information, see the [CWE-78 page](https://cwe.mitre.org/data/definitions/78.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-78 page on the MITRE website: https://cwe.mitre.org/data/definitions/78.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-78 page](https://cwe.mitre.org/data/definitions/78.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -92,8 +92,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/80.html",
                             "help": {
-                                "text": "For more information, see the CWE-80 page on the MITRE website: https://cwe.mitre.org/data/definitions/80.html",
-                                "markdown": "For more information, see the [CWE-80 page](https://cwe.mitre.org/data/definitions/80.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-80 page on the MITRE website: https://cwe.mitre.org/data/definitions/80.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-80 page](https://cwe.mitre.org/data/definitions/80.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -116,8 +116,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/89.html",
                             "help": {
-                                "text": "For more information, see the CWE-89 page on the MITRE website: https://cwe.mitre.org/data/definitions/89.html",
-                                "markdown": "For more information, see the [CWE-89 page](https://cwe.mitre.org/data/definitions/89.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-89 page on the MITRE website: https://cwe.mitre.org/data/definitions/89.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-89 page](https://cwe.mitre.org/data/definitions/89.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -137,8 +137,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/90.html",
                             "help": {
-                                "text": "For more information, see the CWE-90 page on the MITRE website: https://cwe.mitre.org/data/definitions/90.html",
-                                "markdown": "For more information, see the [CWE-90 page](https://cwe.mitre.org/data/definitions/90.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-90 page on the MITRE website: https://cwe.mitre.org/data/definitions/90.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-90 page](https://cwe.mitre.org/data/definitions/90.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -161,8 +161,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/113.html",
                             "help": {
-                                "text": "For more information, see the CWE-113 page on the MITRE website: https://cwe.mitre.org/data/definitions/113.html",
-                                "markdown": "For more information, see the [CWE-113 page](https://cwe.mitre.org/data/definitions/113.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-113 page on the MITRE website: https://cwe.mitre.org/data/definitions/113.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-113 page](https://cwe.mitre.org/data/definitions/113.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -182,8 +182,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/129.html",
                             "help": {
-                                "text": "For more information, see the CWE-129 page on the MITRE website: https://cwe.mitre.org/data/definitions/129.html",
-                                "markdown": "For more information, see the [CWE-129 page](https://cwe.mitre.org/data/definitions/129.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-129 page on the MITRE website: https://cwe.mitre.org/data/definitions/129.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-129 page](https://cwe.mitre.org/data/definitions/129.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -206,8 +206,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/134.html",
                             "help": {
-                                "text": "For more information, see the CWE-134 page on the MITRE website: https://cwe.mitre.org/data/definitions/134.html",
-                                "markdown": "For more information, see the [CWE-134 page](https://cwe.mitre.org/data/definitions/134.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-134 page on the MITRE website: https://cwe.mitre.org/data/definitions/134.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-134 page](https://cwe.mitre.org/data/definitions/134.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -230,8 +230,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/190.html",
                             "help": {
-                                "text": "For more information, see the CWE-190 page on the MITRE website: https://cwe.mitre.org/data/definitions/190.html",
-                                "markdown": "For more information, see the [CWE-190 page](https://cwe.mitre.org/data/definitions/190.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-190 page on the MITRE website: https://cwe.mitre.org/data/definitions/190.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-190 page](https://cwe.mitre.org/data/definitions/190.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -254,8 +254,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/191.html",
                             "help": {
-                                "text": "For more information, see the CWE-191 page on the MITRE website: https://cwe.mitre.org/data/definitions/191.html",
-                                "markdown": "For more information, see the [CWE-191 page](https://cwe.mitre.org/data/definitions/191.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-191 page on the MITRE website: https://cwe.mitre.org/data/definitions/191.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-191 page](https://cwe.mitre.org/data/definitions/191.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -278,8 +278,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/197.html",
                             "help": {
-                                "text": "For more information, see the CWE-197 page on the MITRE website: https://cwe.mitre.org/data/definitions/197.html",
-                                "markdown": "For more information, see the [CWE-197 page](https://cwe.mitre.org/data/definitions/197.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-197 page on the MITRE website: https://cwe.mitre.org/data/definitions/197.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-197 page](https://cwe.mitre.org/data/definitions/197.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -302,8 +302,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/319.html",
                             "help": {
-                                "text": "For more information, see the CWE-319 page on the MITRE website: https://cwe.mitre.org/data/definitions/319.html",
-                                "markdown": "For more information, see the [CWE-319 page](https://cwe.mitre.org/data/definitions/319.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-319 page on the MITRE website: https://cwe.mitre.org/data/definitions/319.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-319 page](https://cwe.mitre.org/data/definitions/319.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -326,8 +326,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/369.html",
                             "help": {
-                                "text": "For more information, see the CWE-269 page on the MITRE website: https://cwe.mitre.org/data/definitions/369.html",
-                                "markdown": "For more information, see the [CWE-369 page](https://cwe.mitre.org/data/definitions/369.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-269 page on the MITRE website: https://cwe.mitre.org/data/definitions/369.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-369 page](https://cwe.mitre.org/data/definitions/369.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -350,8 +350,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/400.html",
                             "help": {
-                                "text": "For more information, see the CWE-400 page on the MITRE website: https://cwe.mitre.org/data/definitions/400.html",
-                                "markdown": "For more information, see the [CWE-400 page](https://cwe.mitre.org/data/definitions/400.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-400 page on the MITRE website: https://cwe.mitre.org/data/definitions/400.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-400 page](https://cwe.mitre.org/data/definitions/400.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -374,8 +374,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/470.html",
                             "help": {
-                                "text": "For more information, see the CWE-470 page on the MITRE website: https://cwe.mitre.org/data/definitions/470.html",
-                                "markdown": "For more information, see the [CWE-470 page](https://cwe.mitre.org/data/definitions/470.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-470 page on the MITRE website: https://cwe.mitre.org/data/definitions/470.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-470 page](https://cwe.mitre.org/data/definitions/470.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -398,8 +398,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/476.html",
                             "help": {
-                                "text": "For more information, see the CWE-476 page on the MITRE website: https://cwe.mitre.org/data/definitions/476.html",
-                                "markdown": "For more information, see the [CWE-476 page](https://cwe.mitre.org/data/definitions/476.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-476 page on the MITRE website: https://cwe.mitre.org/data/definitions/476.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-476 page](https://cwe.mitre.org/data/definitions/476.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -419,8 +419,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/606.html",
                             "help": {
-                                "text": "For more information, see the CWE-606 page on the MITRE website: https://cwe.mitre.org/data/definitions/606.html",
-                                "markdown": "For more information, see the [CWE-606 page](https://cwe.mitre.org/data/definitions/606.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-606 page on the MITRE website: https://cwe.mitre.org/data/definitions/606.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-606 page](https://cwe.mitre.org/data/definitions/606.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -443,8 +443,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/643.html",
                             "help": {
-                                "text": "For more information, see the CWE-643 page on the MITRE website: https://cwe.mitre.org/data/definitions/643.html",
-                                "markdown": "For more information, see the [CWE-643 page](https://cwe.mitre.org/data/definitions/643.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-643 page on the MITRE website: https://cwe.mitre.org/data/definitions/643.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-643 page](https://cwe.mitre.org/data/definitions/643.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -467,8 +467,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/690.html",
                             "help": {
-                                "text": "For more information, see the CWE-690 page on the MITRE website: https://cwe.mitre.org/data/definitions/690.html",
-                                "markdown": "For more information, see the [CWE-690 page](https://cwe.mitre.org/data/definitions/690.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-690 page on the MITRE website: https://cwe.mitre.org/data/definitions/690.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-690 page](https://cwe.mitre.org/data/definitions/690.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
@@ -488,8 +488,8 @@
                             },
                             "helpUri": "https://cwe.mitre.org/data/definitions/789.html",
                             "help": {
-                                "text": "For more information, see the CWE-789 page on the MITRE website: https://cwe.mitre.org/data/definitions/789.html",
-                                "markdown": "For more information, see the [CWE-789 page](https://cwe.mitre.org/data/definitions/789.html) on the MITRE website."
+                                "text": "For additional information on this weakness, visit the CWE-789 page on the MITRE website: https://cwe.mitre.org/data/definitions/789.html",
+                                "markdown": "For additional information on this weakness, visit the [CWE-789 page](https://cwe.mitre.org/data/definitions/789.html) on the MITRE website."
                             },
                             "defaultConfiguration": {
                                 "level": "warning"
