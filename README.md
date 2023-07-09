@@ -1,10 +1,10 @@
 # J-TAS (Java Transformer-based Automated Scanner)
 
-This action analysis Java files and generates a report in [Static Analysis Results Interchange Format (SARIF) format](https://www.oasis-open.org/standard/sarif-v2-1-0/).
+This action analysis Java files using a Deep Learning model and generates a report in [Static Analysis Results Interchange Format (SARIF)](https://www.oasis-open.org/standard/sarif-v2-1-0/). The results can be seen in the *Security tab* of your repository.
 
 We recommend using the [actions/checkout](https://github.com/marketplace/actions/checkout) action to check out your repository, and [github/codeql-action/upload-sarif](https://github.com/github/codeql-action/tree/main/upload-sarif) to upload the SARIF file. For more information on their usage, check the respective READMEs.
 
-# Usage
+## Usage
 
 <!-- start usage -->
 ```yaml
@@ -26,14 +26,14 @@ We recommend using the [actions/checkout](https://github.com/marketplace/actions
 
 When no `paths` nor `files` are provided, the action will analyze all Java files in the repository.
 
-# Workflow examples
+## Workflow examples
 
 - [Analyse the whole repository](#Analyse-the-repository-on-every-push)
 - [Analyse specific files](#Analyse-specific-files)
 - [Analyse specific directories](#Analyse-specific-directories)
 - [Analyse only the changed files in current commit](#Analyse-only-the-changed-files)
 
-## Analyse the repository on every push
+### Analyse the repository on every push
 
 ```yaml
 on: [push]
@@ -57,7 +57,7 @@ jobs:
           category: my-analysis-tool
 ```
 
-## Analyse specific files
+### Analyse specific files
 
 ```yaml
 on: [push]
@@ -83,7 +83,7 @@ jobs:
           category: my-analysis-tool
 ```
 
-## Analyse specific directories
+### Analyse specific directories
 
 ```yaml
 on: [push]
@@ -109,7 +109,7 @@ jobs:
           category: my-analysis-tool
 ```
 
-## Analyse only the changed files
+### Analyse only the changed files
 
 ```yaml
 on: [push]
